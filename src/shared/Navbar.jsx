@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ButtonPrimary from '../component/ButtonPrimary';
 import NavItem from '../component/NavItem';
 
 const Navbar = () => {
@@ -13,7 +14,7 @@ const Navbar = () => {
         <nav className="bg-white border-gray-200 py-2 lg:py-0 dark:bg-gray-900 border-b">
             <div className="container flex flex-wrap items-center justify-between mx-auto">
                 <Link to="/" className="flex items-center">
-                    <img src="/public/images/logo.png" className="h-8 mr-1" alt="airbnd" />
+                    <img src="/images/logo.png" className="h-8 mr-1" alt="airbnd" />
                     <span className="self-center text-xl font-semibold whitespace-nowrap text-orange-500 dark:text-white">Airbnd</span>
                 </Link>
                 <button data-collapse-toggle="navbar-cta" type="button" className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
@@ -23,7 +24,7 @@ const Navbar = () => {
                 <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
                     <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         {navs.map(nav => <NavItem key={nav.id} to={nav.to}>{nav.name}</NavItem>)}
-                        <Link to='/signup' className='w-1/2 lg:w-auto btn flex items-center justify-center px-6 py-2 rounded-full font-semibold text-white hover:text-gray-100 bg-gradient-to-r from-blue-600 to-blue-500 mt-2 lg:mt-0'>Sign up</Link>
+                        <ButtonPrimary to='/signup' text='Sign up' />
                     </ul>
                 </div>
             </div>

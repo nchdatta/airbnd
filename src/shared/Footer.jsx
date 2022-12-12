@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="pb-6 md:flex md:justify-between">
                 <div className="mb-6 md:mb-0">
                     <Link to="/" className="flex items-center">
-                        <img src="/public/images/logo.png" className="mr-1 w-20" alt="airbnb Logo" />
+                        <img src="/images/logo.png" className="mr-1 w-20" alt="airbnb Logo" />
                         <div className="flex flex-col justify-start">
                             <span className="text-xl font-semibold whitespace-nowrap text-orange-500 dark:text-white">Airbnd</span>
                             <span className='text-sm text-gray-600 dark:text-gray-400'>Find Best Rooms, Hotels & Enjoy the Vacation</span>

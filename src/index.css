@@ -20,6 +20,15 @@
   -webkit-text-size-adjust: 100%;
 }
 
+:where(.css-dev-only-do-not-override-1i536d8).ant-select:not(:where(.css-dev-only-do-not-override-1i536d8).ant-select-customize-input) .ant-select-selector {
+  border: 0;
+  padding-left: 0;
+}
+
+:where(.css-dev-only-do-not-override-1i536d8).ant-select .ant-select-selection-item {
+  font-weight: bold;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {

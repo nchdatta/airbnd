@@ -6,7 +6,7 @@ import TextInput from '../../component/TextInput';
 const FindHotel = () => {
     return (
         <div className='my-20 lg:w-4/6 mx-auto px-3'>
-            <div className='p-8 border-2 border-yellow-400 rounded-3xl lg:rounded-full grid grid-cols-2 lg:grid-cols-4 gap-4'>
+            <div className='p-12 border-2 border-yellow-400 rounded-3xl lg:rounded-full grid grid-cols-2 lg:grid-cols-4 gap-4'>
                 <TextInput id='where' placeholder='Location' label='Where' />
                 <DateInput id='checkin' label='Check in' />
                 <DateInput id='checkout' label='Check out' />
