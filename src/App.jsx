@@ -7,6 +7,7 @@ import NotFound from "./shared/NotFound";
 import Footer from "./shared/Footer";
 import { Suspense } from "react";
 import Loading from "./component/Loading";
+import Hotel from "./pages/Hotel/Hotel";
 const Help = React.lazy(() => import("./pages/Help/Help"));
 const HostHotel = React.lazy(() => import("./pages/HostHotel/HostHotel"));
 const SignUp = React.lazy(() => import("./pages/Signup/SignUp"));
@@ -22,6 +23,7 @@ function App() {
         <Route path="/help" element={<Suspense fallback={<Loading />}><Help /></Suspense>} />
         <Route path="/login" element={<Suspense fallback={<Loading />}><Login /></Suspense>} />
         <Route path="/signup" element={<Suspense fallback={<Loading />}><SignUp /></Suspense>} />
+        <Route path="/hotels" element={<Hotel />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
