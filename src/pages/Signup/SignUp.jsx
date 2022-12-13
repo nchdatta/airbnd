@@ -1,12 +1,13 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import PageMeta from '../../component/PageMeta';
 import auth from '../../utils/firebase.init';
 import LoadingButton from '../../component/LoadingButton';
 
 const SignUp = () => {
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [createUserWithEmailAndPassword, user, creating, cError] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, uError] = useUpdateProfile(auth);
@@ -24,9 +25,9 @@ const SignUp = () => {
         await updateProfile({ displayName: name });
     }
 
-    // if (user) {
-    //     console.log(user)
-    // }
+    if (user) {
+        navigate('/', { replace: true });
+    }
     // if (cError) {
     //     console.log(cError)
     // }

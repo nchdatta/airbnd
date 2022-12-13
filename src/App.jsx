@@ -8,6 +8,7 @@ import Footer from "./shared/Footer";
 import { Suspense } from "react";
 import Loading from "./component/Loading";
 import Hotel from "./pages/Hotel/Hotel";
+import RequireAuth from "./shared/RequireAuth";
 const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
 const Help = React.lazy(() => import("./pages/Help/Help"));
 const HostHotel = React.lazy(() => import("./pages/HostHotel/HostHotel"));
@@ -22,7 +23,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/host-hotel" element={<Suspense fallback={<Loading />}><HostHotel /></Suspense>} />
         <Route path="/help" element={<Suspense fallback={<Loading />}><Help /></Suspense>} />
-        <Route path="/dashboard" element={<Suspense fallback={<Loading />}><Dashboard /></Suspense>} />
+        <Route path="/dashboard" element={<Suspense fallback={<Loading />}><RequireAuth><Dashboard /></RequireAuth></Suspense>} />
         <Route path="/login" element={<Suspense fallback={<Loading />}><Login /></Suspense>} />
         <Route path="/signup" element={<Suspense fallback={<Loading />}><SignUp /></Suspense>} />
         <Route path="/hotels" element={<Hotel />} />
