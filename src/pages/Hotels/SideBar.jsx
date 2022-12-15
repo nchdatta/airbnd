@@ -7,6 +7,7 @@ const SideBar = () => {
     const navigate = useNavigate();
 
     const onSubmit = data => {
+        console.log(data)
         const { location, checkin, checkout, traveler } = data;
         if (data) {
             // console.log(location, checkin, checkout, traveler)
@@ -36,7 +37,9 @@ const SideBar = () => {
                     <label htmlFor="traveler" className="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Traveler</label>
                     <input type="number" id="traveler" {...register("traveler", { required: true })} min='1' max='10' placeholder='Traveler' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                 </div>
-                <button type='button' className='w-full flex items-center justify-center px-6 py-2 rounded-full font-semibold text-white hover:text-gray-100 bg-gradient-to-r from-blue-600 to-blue-500 mt-2'>Find</button>
+                <button type='submit' onClick={handleSubmit(onSubmit)}
+                    className="w-full text-white bg-yellow-400 hover:text-gray-100 hover:bg-yellow-400 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-lg px-8 py-2 text-center dark:focus:ring-yellow-900">Find</button>
+
             </form>
         </aside>
     );

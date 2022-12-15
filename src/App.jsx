@@ -1,14 +1,15 @@
-import React from "react";
+import React, { Suspense } from "react";
 import 'flowbite';
 import Navbar from "./shared/Navbar"
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import NotFound from "./shared/NotFound";
 import Footer from "./shared/Footer";
-import { Suspense } from "react";
 import Loading from "./component/Loading";
-import Hotel from "./pages/Hotel/Hotel";
+import Hotels from "./pages/Hotels/Hotels";
 import RequireAuth from "./shared/RequireAuth";
+const Booking = React.lazy(() => import("./pages/Hotel/Booking"));
+const Hotel = React.lazy(() => import("./pages/Hotel/Hotel"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
 const Help = React.lazy(() => import("./pages/Help/Help"));
 const HostHotel = React.lazy(() => import("./pages/HostHotel/HostHotel"));
@@ -23,10 +24,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/host-hotel" element={<Suspense fallback={<Loading />}><HostHotel /></Suspense>} />
         <Route path="/help" element={<Suspense fallback={<Loading />}><Help /></Suspense>} />
-        <Route path="/dashboard" element={<Suspense fallback={<Loading />}><RequireAuth><Dashboard /></RequireAuth></Suspense>} />
+        <Route path="/dashboard/*" element={<Suspense fallback={<Loading />}><RequireAuth><Dashboard /></RequireAuth></Suspense>} />
         <Route path="/login" element={<Suspense fallback={<Loading />}><Login /></Suspense>} />
         <Route path="/signup" element={<Suspense fallback={<Loading />}><SignUp /></Suspense>} />
-        <Route path="/hotels" element={<Hotel />} />
+        <Route path="/hotels" element={<Hotels />} />
+        <Route path="/hotel/:title" element={<Suspense fallback={<Loading />}><Hotel /></Suspense>} />
+        <Route path="/hotel/booking/*" element={<Suspense fallback={<Loading />}><Booking /></Suspense>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 const PageMeta = ({ title }) => {
     return (
         <Helmet>
-            <title>{title} - Airbnd</title>
+            <title>{title} | Airbnd</title>
         </Helmet>
     );
 };
