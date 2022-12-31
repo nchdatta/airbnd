@@ -29,7 +29,7 @@ const Navbar = () => {
 
     return (
         <nav className="bg-white border-gray-200 py-2 lg:py-0 dark:bg-gray-900 border-b">
-            <div className="container flex flex-wrap items-center justify-between mx-auto">
+            <div className="px-2 lg:w-4/5 mx-auto flex flex-wrap items-center justify-between">
                 <Link to="/" className="flex items-center">
                     <img src="/images/logo.png" className="h-8 mr-1" alt="airbnd" />
                     <span className="self-center text-xl font-semibold whitespace-nowrap text-orange-500 dark:text-white">Airbnd</span>

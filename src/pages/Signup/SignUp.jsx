@@ -25,7 +25,7 @@ const SignUp = () => {
         await updateProfile({ displayName: name });
     }
 
-    if (user) {
+    if (user || gUser) {
         navigate('/', { replace: true });
     }
     // if (cError) {

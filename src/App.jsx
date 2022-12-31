@@ -11,29 +11,27 @@ import RequireAuth from "./shared/RequireAuth";
 const Booking = React.lazy(() => import("./pages/Hotel/Booking"));
 const Hotel = React.lazy(() => import("./pages/Hotel/Hotel"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
-const Help = React.lazy(() => import("./pages/Help/Help"));
-const HostHotel = React.lazy(() => import("./pages/HostHotel/HostHotel"));
 const SignUp = React.lazy(() => import("./pages/Signup/SignUp"));
 const Login = React.lazy(() => import("./pages/Login/Login"));
 
 function App() {
   return (
-    <div className="px-2 lg:w-4/5 mx-auto">
+    <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/host-hotel" element={<Suspense fallback={<Loading />}><HostHotel /></Suspense>} />
-        <Route path="/help" element={<Suspense fallback={<Loading />}><Help /></Suspense>} />
-        <Route path="/dashboard/*" element={<Suspense fallback={<Loading />}><RequireAuth><Dashboard /></RequireAuth></Suspense>} />
-        <Route path="/login" element={<Suspense fallback={<Loading />}><Login /></Suspense>} />
-        <Route path="/signup" element={<Suspense fallback={<Loading />}><SignUp /></Suspense>} />
-        <Route path="/hotels" element={<Hotels />} />
-        <Route path="/hotel/:title" element={<Suspense fallback={<Loading />}><Hotel /></Suspense>} />
-        <Route path="/hotel/booking/*" element={<Suspense fallback={<Loading />}><Booking /></Suspense>} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div className="px-2 lg:w-4/5 mx-auto">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard/*" element={<Suspense fallback={<Loading />}><RequireAuth><Dashboard /></RequireAuth></Suspense>} />
+          <Route path="/login" element={<Suspense fallback={<Loading />}><Login /></Suspense>} />
+          <Route path="/signup" element={<Suspense fallback={<Loading />}><SignUp /></Suspense>} />
+          <Route path="/hotels" element={<Hotels />} />
+          <Route path="/hotel/:title" element={<Suspense fallback={<Loading />}><Hotel /></Suspense>} />
+          <Route path="/hotel/booking/*" element={<Suspense fallback={<Loading />}><Booking /></Suspense>} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
       <Footer />
-    </div>
+    </>
   )
 }
 
